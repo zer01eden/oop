@@ -1,30 +1,24 @@
-//factory function - produce new objects/functions
-
-const makeCounter = function (name) {
-	return {
-		name: name,
-		number: 0,
-		inc: makeCounter.inc,
-		stat: makeCounter.stat,
-	};
-};
-
-//this is test fabric functions
-//this is not the best solution
-//constructor is better
-
-makeCounter.inc = function () {
+const inc = function () {
 	++this.number;
 };
 
-makeCounter.stat = function () {
+const stat = function () {
 	console.log(`info from: ${this.name}. current number is: ${this.number}`);
 	return this.number;
 };
 
-const counter1 = makeCounter('counter1');
-const counter2 = makeCounter('counter2');
-const counter3 = makeCounter('counter3');
+// test constructor function 
+const Counter = function (name) {
+	this.name = name, 
+	this.number = 0, 
+	this.inc = inc,
+	this.stat = stat 
+}
+
+// keyword *new* use function Counter created object 
+const counter1 = new Counter('counter1');
+const counter2 = new Counter('counter2');
+const counter3 = new Counter('counter3');
 
 counter1.inc();
 counter1.inc();

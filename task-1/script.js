@@ -1,20 +1,20 @@
-const makeCounter = function () {
-	let number = 0;
-
-	function inc() {
-		++number;
-	}
-
-	function status() {
-		console.log(`'current number is: ${number}`);
-	}
-
-	return {
-		inc: inc,
-		status: status,
-	};
+const inc = function () {
+	++this.number;
 };
 
-const counter1 = makeCounter();
-const counter2 = makeCounter();
+const stat = function () {
+	console.log(`info from: ${this.name}. current number is: ${this.number}`);
+};
+const counter1 = {
+	name: 'counter1',
+	number: 0,
+	inc: inc,
+	stat: stat,
+};
 
+const counter2 = {
+	name: 'counter2',
+	number: 0,
+	inc: inc,
+	stat: stat,
+};

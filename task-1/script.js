@@ -1,3 +1,5 @@
+//factory function - produce new objects/functions
+
 const makeCounter = function (name) {
 	return {
 		name: name,
@@ -7,7 +9,7 @@ const makeCounter = function (name) {
 	};
 };
 
-//this is test functions inside object
+//this is test fabric functions
 //this is not the best solution
 //constructor is better
 

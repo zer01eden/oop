@@ -18,12 +18,14 @@ Counter.prototype.render = function () {
 	h1.innerText = this.number;
 	button.innerText = '+';
 
-//
+// we pass 'this' to constant 'self'
 	const self = this;
 
 	button.addEventListener('click', function () {
-		console.log(this);
-		console.log(self);
+		//in higher order function 'addEventListener' the value of "this" within the handler (here it points to 'button')
+		console.log(this); 
+		// by creating a 'self' variable we can pass 'this' from the 'Counter' function
+		console.log(self); //
 		// this.inc();
 		self.inc();
 	});
